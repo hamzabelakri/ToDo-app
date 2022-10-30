@@ -25,7 +25,7 @@ function TodoApp() {
     setTask(task.filter((elt) => elt.id !== id));
     console.log(id);
   };
-
+/* comment for testing */
   const handleComplete = (id) => {
     setTask(task.map((elt) => {
       if (elt.id === id) {
