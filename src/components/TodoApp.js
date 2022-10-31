@@ -25,15 +25,16 @@ function TodoApp() {
     setTask(task.filter((elt) => elt.id !== id));
     console.log(id);
   };
-/* comment for testing */
+  /* comment for testing */
   const handleComplete = (id) => {
-    setTask(task.map((elt) => {
-      if (elt.id === id) {
-        return {...elt , completed: !elt.completed }
-     }}))
-    }
-
- 
+    setTask(
+      task.map((elt) => {
+        if (elt.id === id) {
+          return { ...elt, completed: !elt.completed };
+        } return elt
+      })
+    );
+  };
 
   return (
     <div className="todo">
@@ -52,9 +53,12 @@ function TodoApp() {
       <ul>
         {console.log(task)}
         {task.map((elt) => (
-          <li key={elt.id}>
+          <li key={elt.id} className={elt.completed ? "crossText" : "listitem"}>
             {elt.value}
-            <button className="completed" onClick={() => handleComplete(elt.id)}>
+            <button
+              className="completed"
+              onClick={() => handleComplete(elt.id)}
+            >
               Completed
             </button>
             <button className="delete" onClick={() => handleDelete(elt.id)}>
